@@ -2,13 +2,23 @@ import Image from "next/image";
 import { Header } from "./components/Header";
 import { Upcoming } from "./components/Upcoming";
 import { Navigation } from "./components/Navigation";
+import { Footer } from "./components/Footer";
+import { Coming } from "./components/Coming";
+import { Popular } from "./components/Popular";
+import { Top_radet } from "./components/Top_rated";
 
 export default function Home() {
   return (
-    <div>
-      <Navigation />
+    <div className="w-full h-screen flex justify-center">
+      <div className="w-360">
+        <Navigation />
 
-      <Upcoming />
+        <Upcoming />
+        <Coming />
+        <Popular />
+        <Top_radet />
+        <Footer />
+      </div>
     </div>
   );
 }
