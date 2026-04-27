@@ -23,7 +23,7 @@ export const Coming = () => {
   }, []);
 
   return (
-    <div className="flex flex-col.  items-center gap-6">
+    <div className="flex flex-col gap-6">
       <div className="flex justify-between">
         <p className="text-4xl text-black font-bold">Upcomming</p>
         <button
