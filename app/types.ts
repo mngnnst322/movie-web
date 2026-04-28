@@ -6,8 +6,8 @@ export type MovieSummary = {
   original_title: string;
   overview: string;
   poster_path: string | null;
-  media_type: "movie" | string;
   original_language: string;
+  media_type: "movie" | string;
   genre_ids: number[];
   popularity: number;
   release_date: string; // ISO date string

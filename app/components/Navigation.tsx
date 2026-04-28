@@ -64,7 +64,7 @@ export default function Navigation() {
                     width={16}
                     height={16}
                     className="w-4 h-4 justify-center items-center"
-                    src="navisearch.svg"
+                    src="/navisearch.svg"
                     alt=""
                   />
 
@@ -91,7 +91,7 @@ export default function Navigation() {
                 </div>
                 <hr className="border border-[#E4E4E7] my-4" />
 
-                <div className="flex flex-wrap gap-4 max-w-[540px]">
+                <div className="flex flex-wrap gap-4 max-w-135">
                   {genres.map((genre) => (
                     <button
                       key={genre.id}

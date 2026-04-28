@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/alt-text */
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+
 import { MovieSummary } from "../types";
 import axios from "axios";
 
@@ -22,10 +21,18 @@ export const Coming = () => {
       });
   }, []);
 
+  if (movies.length === 0) {
+    return (
+      <div className="h-125 w-full bg-gray-800 items-center justify-center text-white">
+        Loading...{" "}
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between">
-        <p className="text-4xl text-black font-bold">Upcomming</p>
+        <p className="text-4xl text-black font-bold">Upcoming</p>
         <button
           onClick={() => setDrama((prev) => prev + 10)}
           className="flex justify-center items-center text-1xl gap-1.5 cursor-pointer hover:opacity-60"

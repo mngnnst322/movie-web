@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/alt-text */
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+
 import { MovieSummary } from "../types";
 import axios from "axios";
-
-const API_KEY = "826f50ac875ac781d67fa627ccd5498a";
+import Link from "next/link";
+const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
 
 export const Popular = () => {
   const [popular, setPopular] = useState<MovieSummary[]>([]);
@@ -14,9 +13,7 @@ export const Popular = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=d67d8bebd0f4ff345f6505c99e9d0289&`,
-      )
+      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       .then((res) => {
         setPopular(res.data.results);
       });
@@ -26,6 +23,7 @@ export const Popular = () => {
     <div className="flex flex-col gap-6">
       <div className="flex justify-between">
         <p className="text-4xl text-black font-bold">Popular</p>
+
         <button
           onClick={() => setDrama((prev) => prev + 10)}
           className="flex justify-center items-center text-1xl gap-1.5 cursor-pointer hover:opacity-60"
@@ -36,17 +34,19 @@ export const Popular = () => {
       </div>
       <div className="grid grid-cols-5 grid-rows-2 gap-4">
         {popular.slice(0, drama).map((movie) => (
-          <div key={movie.id}>
+          <Link href={`/movie/${movie?.id}`} key={movie.id}>
             <div>
-              <img
-                width={230}
-                height={340}
-                alt=""
-                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-              />
-              {movie.title}
+              <div>
+                <img
+                  width={230}
+                  height={340}
+                  alt=""
+                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                />
+                {movie.title}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
