@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { MovieSummary } from "../types";
 import axios from "axios";
 import Link from "next/link";
+import "swiper/css";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 
 const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
 
@@ -41,87 +43,101 @@ export const Upcoming = () => {
   const isPrevdisabled = currentIndex <= 0;
 
   return (
-    <div
-      className="w-360 h-150 bg-cover bg-center bg-zinc-800 transition-all relative duration-500 easa-in-out"
-      style={{
-        backgroundImage: currentMovie?.backdrop_path
-          ? `url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`
-          : "none",
-      }}
+    <Swiper
+      autoplay={{ delay: 5000 }}
+      spaceBetween={50}
+      navigation={true}
+      pagination={true}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+      modules={[Navigation, Pagination, Autoplay]}
     >
-      <div className="flex h-full text-white  items-center justify-between ">
-        <div className="flex items-center justify-center ">
-          {" "}
-          <button
-            onClick={prevSlide}
-            disabled={isPrevdisabled}
-            className="flex items-center justify-center w-5 h-5 bg-white  rounded-full "
-          >
-            <Image
-              width={20}
-              height={20}
-              className="w-5 h-5"
-              src="/chevron-right (1).svg"
-              alt=""
-            />
-          </button>
-          <div
-            className="flex flex-col justify-center w-160  
+      <SwiperSlide>
+        <div
+          className="w-360 h-150 bg-cover bg-center bg-zinc-800 transition-all relative duration-500 easa-in-out"
+          style={{
+            backgroundImage: currentMovie?.backdrop_path
+              ? `url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`
+              : "none",
+          }}
+        >
+          <div className="flex h-full text-white  items-center justify-between ">
+            <div className="flex items-center justify-center ">
+              {" "}
+              <button
+                onClick={prevSlide}
+                disabled={isPrevdisabled}
+                className="flex items-center justify-center w-5 h-5 bg-white  rounded-full "
+              >
+                <Image
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                  src="/chevron-right (1).svg"
+                  alt=""
+                />
+              </button>
+              <div
+                className="flex flex-col justify-center w-160  
      gap-4 0 pl-35 "
-          >
-            <p className="text-lg  font-semibold">Now Playing:</p>
-            <p className="text-[34px]">{currentMovie.title}</p>
-            <div className="flex">
+              >
+                <p className="text-lg  font-semibold">Now Playing:</p>
+                <p className="text-[34px]">{currentMovie.title}</p>
+                <div className="flex">
+                  <Image
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
+                    src="star.svg"
+                    alt=""
+                  />
+                  <p className="text-[18px] ">
+                    {" "}
+                    {currentMovie.vote_average.toFixed(1)}{" "}
+                  </p>
+                  <p className="text-[#71717A] text-[16px]">/10</p>
+                </div>
+                <p className="text-[12px] bg-[#FAFAFA;] font-normal ">
+                  {currentMovie.overview}
+                </p>
+                <Link href={`/movie/${currentMovie.id}`}>
+                  <button className="flex w-fit h-[48] items-center justify-center gap-2 px-4 rounded-lg py-2 bg-white; bg-[#F4F4F5]">
+                    <img className="w-5 h-5" src="play.svg" alt="" />
+                    <p className="text-black text-[14px] w-22.25 h-5">
+                      Watch Trailer
+                    </p>
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <button
+              onClick={nextSlide}
+              disabled={isNextdisabled}
+              className="flex items-center justify-self-end  bg-white  rounded-full "
+            >
               <Image
-                width={24}
-                height={24}
-                className="w-6 h-6"
-                src="star.svg"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+                src="/chevron-right (1).svg"
                 alt=""
               />
-              <p className="text-[18px] ">
-                {" "}
-                {currentMovie.vote_average.toFixed(1)}{" "}
-              </p>
-              <p className="text-[#71717A] text-[16px]">/10</p>
-            </div>
-            <p className="text-[12px] bg-[#FAFAFA;] font-normal ">
-              {currentMovie.overview}
-            </p>
-            <Link href={`/movie/${currentMovie.id}`}>
-              <button className="flex w-fit h-[48] items-center justify-center gap-2 px-4 rounded-lg py-2 bg-white; bg-[#F4F4F5]">
-                <img className="w-5 h-5" src="play.svg" alt="" />
-                <p className="text-black text-[14px] w-22.25 h-5">
-                  Watch Trailer
-                </p>
-              </button>
-            </Link>
+            </button>
+          </div>
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 ">
+            {movies.slice(0, 10).map((_, index) => (
+              <div
+                key={index}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "w-8 bg-indigo-600 "
+                    : "w-2 bg-white/50"
+                }`}
+              ></div>
+            ))}
           </div>
         </div>
-        <button
-          onClick={nextSlide}
-          disabled={isNextdisabled}
-          className="flex items-center justify-self-end  bg-white  rounded-full "
-        >
-          <Image
-            width={20}
-            height={20}
-            className="w-5 h-5"
-            src="/chevron-right (1).svg"
-            alt=""
-          />
-        </button>
-      </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 ">
-        {movies.slice(0, 10).map((_, index) => (
-          <div
-            key={index}
-            className={`h-2 rounded-full transition-all ${
-              index === currentIndex ? "w-8 bg-indigo-600 " : "w-2 bg-white/50"
-            }`}
-          ></div>
-        ))}
-      </div>
-    </div>
+      </SwiperSlide>
+    </Swiper>
   );
 };

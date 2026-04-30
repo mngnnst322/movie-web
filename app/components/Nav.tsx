@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Genre } from "../types";
 import Image from "next/image";
+import { Genres } from "./Genre";
 
 export default function Navigation() {
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -43,6 +44,7 @@ export default function Navigation() {
           </Link>
 
           <div className="flex gap-3  ">
+            <Genres />
             <div className="relative w-144.25">
               <div className="flex gap-4">
                 <button
@@ -91,7 +93,7 @@ export default function Navigation() {
                 </div>
                 <hr className="border border-[#E4E4E7] my-4" />
 
-                <div className="flex flex-wrap gap-4 max-w-135">
+                <div className="flex flex-wrap gap-4 max-w-[540px]">
                   {genres.map((genre) => (
                     <button
                       key={genre.id}

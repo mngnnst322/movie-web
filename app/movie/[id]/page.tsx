@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client"; // Энэ нь client component гэдгийг заана
-import Navigation from "@/app/components/Navigation";
+import Navigation from "@/app/components/Nav";
 import { MovieSummary } from "@/app/types";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -70,7 +70,7 @@ export default function MovieDetails() {
               src={`https://image.tmdb.org/t/p/w300${movie?.poster_path}`}
             />
             <img
-              className="w-[760px]  h-107 flex gap-4"
+              className="w-190  h-107 flex gap-4"
               alt=""
               src={`https://image.tmdb.org/t/p/w300${movie?.backdrop_path}`}
             />

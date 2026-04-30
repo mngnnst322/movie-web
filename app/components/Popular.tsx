@@ -24,26 +24,49 @@ export const Popular = () => {
       <div className="flex justify-between">
         <p className="text-4xl text-black font-bold">Popular</p>
 
-        <button
+        <Link
+          href={"/popular"}
           onClick={() => setDrama((prev) => prev + 10)}
           className="flex justify-center items-center text-1xl gap-1.5 cursor-pointer hover:opacity-60"
         >
           See more
           <img src="chevron-right (1).svg" alt="" className="w-4 h-4" />
-        </button>
+        </Link>
       </div>
       <div className="grid grid-cols-5 grid-rows-2 gap-4">
         {popular.slice(0, drama).map((movie) => (
           <Link href={`/movie/${movie?.id}`} key={movie.id}>
-            <div>
-              <div>
+            <div key={movie.id}>
+              <div className="w-57.5">
                 <img
+                  className="rounded-t-md"
                   width={230}
                   height={340}
                   alt=""
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 />
-                {movie.title}
+
+                <div className="bg-stone-200 w-full  rounded-b-md h-25">
+                  {" "}
+                  <div
+                    className="flex justify-start items-center pt-2.5  pl-2.5
+                  "
+                  >
+                    <img
+                      width={24}
+                      height={24}
+                      className="w-5 h-5"
+                      src="star.svg"
+                      alt=""
+                    />
+                    <p className="text-[18px] ">
+                      {" "}
+                      {movie.vote_average.toFixed(1)}{" "}
+                    </p>
+                    <p className="text-[#71717A] text-[16px]">/10</p>
+                  </div>
+                  <div className="  pl-2.5 "> {movie.title}</div>
+                </div>
               </div>
             </div>
           </Link>

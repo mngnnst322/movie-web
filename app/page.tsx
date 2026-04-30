@@ -4,7 +4,7 @@ import { Footer } from "./components/Footer";
 import { Coming } from "./components/Coming";
 import { Popular } from "./components/Popular";
 import { Top_radet } from "./components/Top_rated";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Nav";
 
 export default function Home() {
   return (
