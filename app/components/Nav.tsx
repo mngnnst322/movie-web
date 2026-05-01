@@ -47,20 +47,6 @@ export default function Navigation() {
             <Genres />
             <div className="relative w-144.25">
               <div className="flex gap-4">
-                <button
-                  onClick={() => setIsVisible(!isVisible)}
-                  className="flex gap-2 items-center z-30 font-medium text-[#181818] px-4 py-2.5 border border-[#E4E4E7] rounded-[10px] shadow-xs cursor-pointer hover:opacity-80"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M4 6L8 10L12 6"
-                      stroke="#18181B"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Genre
-                </button>
                 <div className="w-78  flex h-12 border-gray-100 items-center justify-start gap-2 border-2 rounded-md px-2">
                   <Image
                     width={16}

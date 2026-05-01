@@ -22,16 +22,14 @@ export const Genres = () => {
         onClick={() => {
           setIsVisible(!isVisible);
         }}
-        className="w-24.25 h-9 px-4 py-2 border border-stone-200 shadow-3xl items-center flex justify-center rounded-lg gap-2 cursor-pointer hover:scale-105 transition-transform dark:border-gray-700"
+        className="w-24.25 h-12 px-4 py-2 border border-stone-200 shadow-3xl items-center flex justify-center rounded-lg gap-2 cursor-pointer hover:scale-105 transition-transform "
       >
-        (
-        <img src="/chevron-down (1).svg" alt="" />
-        ) : (
-        <img src="/chevron-down.svg" alt="" />) Genre
+        <img className="w-3.5 h-3.5" src="/chevron-right (1).svg" alt="" />
+        Genre
       </button>
       <div
         data-shown={isVisible}
-        className={`absolute z-10 duration-300  p-5 bg-white border border-[#E4E4E7] rounded-lg mt-1 data-[shown=true]:visible data-[shown=true]:opacity-100 invisible opacity-0 dark:bg-black dark:text-white dark:border-gray-700 `}
+        className={`absolute z-10 duration-300  p-5 bg-white border border-[#E4E4E7] rounded-lg mt-1 data-[shown=true]:visible data-[shown=true]:opacity-100 invisible opacity-0    `}
       >
         <div className="mt-1 font-semibold text-2xl ">Genres</div>
         <div>See lists of movies by genre</div>
