@@ -1,21 +1,47 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 import { tmdb } from "@/lib/tmdb";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Genre } from "../types";
+import { Genre, MovieSummary } from "../types";
 import Image from "next/image";
 import { Genres } from "./Genre";
+import axios from "axios";
 
 export default function Navigation() {
+  const [results, setResults] = useState<MovieSummary[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [isVisible, setIsVisible] = useState(false);
-  const [value, setValue] = useState("");
+  const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
 
   useEffect(() => {
     tmdb.get("/genre/movie/list").then((res) => {
       setGenres(res.data.genres);
     });
   }, []);
+  useEffect(() => {
+    if (!query.trim()) {
+      setResults([]);
+      return;
+    }
+    setLoading(true);
+
+    const timeout = setTimeout(() => {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`,
+        )
+        .then((res) => {
+          setResults(res.data.results);
+        })
+        .finally(() => setLoading(false));
+    }, 400);
+
+    return () => clearTimeout(timeout);
+  }, [query]);
 
   return (
     <header className="py-[11.5px]">
@@ -57,14 +83,52 @@ export default function Navigation() {
                   />
 
                   <input
+                    className="outline-none"
                     placeholder="Search..."
                     type="text"
-                    value={value}
+                    value={query}
                     onChange={(e) => {
-                      setValue(e.target.value);
+                      setQuery(e.target.value);
                     }}
                   />
                 </div>
+                {(results.length > 0 || loading) && (
+                  <button className="absolute top-8 bg-white mt-2 w-78 shadow-lg rounded-lg max-h-60 overflow-y-auto z-20 ">
+                    {loading && (
+                      <p className="p-3 text-gray-500">Searching...</p>
+                    )}
+                    {results.slice(0, 20).map((movie) => (
+                      <Link
+                        key={movie.id}
+                        href={`/movie/${movie.id}`}
+                        className="p-2 flex items-center gap-2.5 hover:bg-gray-100 cursor-pointer "
+                      >
+                        {movie.poster_path && (
+                          <img
+                            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                            alt={movie.title}
+                            className="w-12 h-16 rounded shadow-md"
+                          />
+                        )}
+
+                        <div className="space-y-1">
+                          <p className="text-sm font-medium">{movie.title}</p>
+
+                          <div className="flex items-center gap-1">
+                            <img src="/star.svg" alt="" className="h-3 w-3" />
+                            <p className="text-yellow-500 text-xs">
+                              {movie.vote_average.toFixed(1)}/10
+                            </p>
+                          </div>
+
+                          <p className="text-xs text-gray-500 flex flex-start">
+                            {movie.release_date}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </button>
+                )}
               </div>
 
               <div
@@ -79,7 +143,7 @@ export default function Navigation() {
                 </div>
                 <hr className="border border-[#E4E4E7] my-4" />
 
-                <div className="flex flex-wrap gap-4 max-w-[540px]">
+                <div className="flex flex-wrap gap-4 max-w-135">
                   {genres.map((genre) => (
                     <button
                       key={genre.id}

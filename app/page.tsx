@@ -3,18 +3,19 @@ import { Upcoming } from "./components/Upcoming";
 import { Footer } from "./components/Footer";
 import { Coming } from "./components/Coming";
 import { Popular } from "./components/Popular";
-import { Top_radet } from "./components/Top_rated";
+
 import Navigation from "./components/Nav";
+import { Top_rated } from "./components/Top_rated";
 
 export default function Home() {
   return (
     <div className="w-full h-screen flex justify-center">
-      <div className="w-360">
+      <div className="w-360 space-y-20 items-center">
         <Navigation />
         <Upcoming />
         <Coming />
         <Popular />
-        <Top_radet />
+        <Top_rated />
         <Footer />
       </div>
     </div>

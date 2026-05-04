@@ -63,7 +63,6 @@ export const Upcoming = () => {
         >
           <div className="flex h-full text-white  items-center justify-between ">
             <div className="flex items-center justify-center ">
-              {" "}
               <button
                 onClick={prevSlide}
                 disabled={isPrevdisabled}

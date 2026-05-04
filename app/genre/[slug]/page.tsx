@@ -24,7 +24,7 @@ export default function Search() {
     });
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&?language=en-US&with_genres=${genreIds.join(",")}`,
+        `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${genreIds.join(",")}`,
       )
       .then((res) => {
         setPopular(res.data.results);
@@ -45,10 +45,14 @@ export default function Search() {
             {genres.map((genre, i) => (
               <button
                 onClick={() => {
-                  setGenreIds([...genreIds, genre.id]);
+                  setGenreIds((prev) =>
+                    prev.includes(genre.id)
+                      ? prev.filter((id) => id !== genre.id)
+                      : [...prev, genre.id],
+                  );
                 }}
                 key={i}
-                className="border cursor-pointer hover:scale-105 transition-transform duration-100 text-xs font-semibold py-0.5 pl-2.5 pr-2  border-[#E4E4E7] rounded-full flex items-center gap-2 dark:border-gray-700"
+                className={`border cursor-pointer hover:scale-105 transition-transform duration-100 text-xs font-semibold py-0.5 pl-2.5 pr-2  border-[#E4E4E7] rounded-full flex items-center gap-2 dark:border-gray-700 ${genreIds.includes(genre.id) ? "bg-gray-300" : ""}`}
               >
                 {genre.name}
                 <svg
@@ -92,7 +96,7 @@ export default function Search() {
                             width={24}
                             height={24}
                             className="w-5 h-5"
-                            src="star.svg"
+                            src="/star.svg"
                             alt=""
                           />
                           <p className="text-[18px] ">

@@ -33,7 +33,7 @@ export const Popular = () => {
           <img src="chevron-right (1).svg" alt="" className="w-4 h-4" />
         </Link>
       </div>
-      <div className="grid grid-cols-5 grid-rows-2 gap-4">
+      <div className="grid grid-cols-5 grid-rows-2 gap-4  place-items-center">
         {popular.slice(0, drama).map((movie) => (
           <Link href={`/movie/${movie?.id}`} key={movie.id}>
             <div key={movie.id}>
