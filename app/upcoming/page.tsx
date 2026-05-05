@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Header } from "../components/Header";
+
 import { tmdb } from "@/lib/tmdb";
 import { Footer } from "../components/Footer";
 import { MovieSummary } from "../types";

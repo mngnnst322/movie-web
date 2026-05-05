@@ -15,6 +15,7 @@ export default function Navigation() {
   const [isVisible, setIsVisible] = useState(false);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  // const { theme, setTheme } = useTheme();
   const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
 
   useEffect(() => {
@@ -44,9 +45,9 @@ export default function Navigation() {
   }, [query]);
 
   return (
-    <header className="py-[11.5px]">
+    <header className="py-[11.5px] w-full">
       <div className="container">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-around items-center">
           <Link
             href={"/"}
             className=" flex text-indigo-700 text-1xl gap-2 items-center"
@@ -146,6 +147,9 @@ export default function Navigation() {
                 <div className="flex flex-wrap gap-4 max-w-135">
                   {genres.map((genre) => (
                     <button
+                      onClick={() => {
+                        setTheme(theme === "light" ? "dark" : "light");
+                      }}
                       key={genre.id}
                       className="border cursor-pointer hover:opacity-80 duration-300 text-xs font-semibold py-0.5 pl-2.5 pr-1 border-[#E4E4E7] rounded-full flex items-center gap-2"
                     >

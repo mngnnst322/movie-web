@@ -71,7 +71,7 @@ export default function MovieDetails() {
   }
 
   return (
-    <div className="flex flex-col items-center w-full  ">
+    <div className="flex flex-col items-center w-screen ">
       <Navigation />
 
       <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-8">

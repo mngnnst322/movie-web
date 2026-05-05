@@ -66,13 +66,13 @@ export const Upcoming = () => {
               <button
                 onClick={prevSlide}
                 disabled={isPrevdisabled}
-                className="flex items-center justify-center w-5 h-5 bg-white  rounded-full "
+                className="flex items-center justify-center w-7 h-7 bg-white  rounded-full ml-2.5 "
               >
                 <Image
                   width={20}
                   height={20}
-                  className="w-5 h-5"
-                  src="/chevron-right (1).svg"
+                  src="/left.svg"
+                  className="ml-2"
                   alt=""
                 />
               </button>
@@ -112,15 +112,9 @@ export const Upcoming = () => {
             <button
               onClick={nextSlide}
               disabled={isNextdisabled}
-              className="flex items-center justify-self-end  bg-white  rounded-full "
+              className="flex items-center justify-center mr-2.5 bg-white w-7 h-7 rounded-full "
             >
-              <Image
-                width={20}
-                height={20}
-                className="w-5 h-5"
-                src="/chevron-right (1).svg"
-                alt=""
-              />
+              <Image width={20} height={20} src="/right.svg" alt="" />
             </button>
           </div>
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 ">

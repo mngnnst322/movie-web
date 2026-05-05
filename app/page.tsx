@@ -9,7 +9,7 @@ import { Top_rated } from "./components/Top_rated";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen flex justify-center">
+    <div className="w-screen h-screen flex justify-center">
       <div className="w-360 space-y-20 items-center">
         <Navigation />
         <Upcoming />
