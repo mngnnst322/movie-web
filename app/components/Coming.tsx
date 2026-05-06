@@ -32,9 +32,9 @@ export const Coming = () => {
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 ">
       <div className="flex justify-between">
-        <p className="text-4xl text-black font-bold">Upcoming</p>
+        <p className="text-4xl text-black font-bold dark:text-white">Balss</p>
         <Link
           href={"/upcoming"}
           onClick={() => setDrama((prev) => prev + 10)}

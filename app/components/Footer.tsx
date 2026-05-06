@@ -15,7 +15,7 @@ export const Footer = () => {
               width={16}
               height={16}
               className="w-4 h-4"
-              src="film.svg"
+              src="/film.svg"
               alt=""
             />
             <p className="text-white flex items-center justify-center w-16 h-5">
