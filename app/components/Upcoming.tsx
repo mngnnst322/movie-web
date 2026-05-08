@@ -54,14 +54,14 @@ export const Upcoming = () => {
     >
       <SwiperSlide>
         <div
-          className="w-360 h-150 bg-cover bg-center flex justify-center items-center bg-zinc-800 transition-all relative duration-500 easa-in-out"
+          className="w-full relative h-150 bg-cover bg-center flex justify-center items-center bg-zinc-800 transition-all relative duration-500 easa-in-out"
           style={{
             backgroundImage: currentMovie?.backdrop_path
               ? `url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`
               : "none",
           }}
         >
-          <div className="flex h-full text-white  items-center justify-center ">
+          <div className="flex h-full w-full text-white  items-center justify-start ">
             <div className="flex items-center justify-center ">
               <button
                 onClick={prevSlide}
@@ -108,14 +108,15 @@ export const Upcoming = () => {
                   </button>
                 </Link>
               </div>
-            </div>
-            <button
+              <button
               onClick={nextSlide}
               disabled={isNextdisabled}
-              className="flex items-center justify-center mr-2.5 bg-white w-7 h-7 rounded-full "
+              className="flex fixed right-10 items-center justify-center mr-2.5 bg-white w-7 h-7 rounded-full "
             >
               <Image width={20} height={20} src="/right.svg" alt="" />
             </button>
+            </div>
+            
           </div>
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 ">
             {movies.slice(0, 10).map((_, index) => (

@@ -33,7 +33,7 @@ export const Coming = () => {
 
   return (
     <div className="flex justify-center items-center flex-col gap-6 w-full">
-      <div className="flex justify-between w-full px-20">
+      <div className="flex justify-between w-358 px-20">
         <p className="text-4xl text-black font-bold dark:text-white">
           Upcoming
         </p>
