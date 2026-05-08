@@ -24,9 +24,11 @@ export const Top_rated = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex justify-between">
-        <p className="text-4xl text-black font-bold">Top rated</p>
+    <div className="flex justify-center items-center flex-col gap-6 w-full">
+      <div className="flex justify-between w-full ">
+        <p className="text-4xl text-black font-bold dark:text-white">
+          Top rated
+        </p>
         <Link
           href={"/Top-rated"}
           onClick={() => setDrama((prev) => prev + 10)}

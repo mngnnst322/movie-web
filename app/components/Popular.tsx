@@ -20,7 +20,7 @@ export const Popular = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex justify-center items-center flex-col gap-6 w-full">
       <div className="flex justify-between">
         <p className="text-4xl text-black font-bold">Popular</p>
 

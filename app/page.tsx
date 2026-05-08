@@ -9,15 +9,13 @@ import { Top_rated } from "./components/Top_rated";
 
 export default function Home() {
   return (
-    <div className="w-screen  flex justify-center dark:bg-black">
-      <div className="w-360 space-y-20 items-center">
-        <Navigation />
-        <Upcoming />
-        <Coming />
-        <Popular />
-        <Top_rated />
-        <Footer />
-      </div>
+    <div className="w-screen space-y-20 items-center justify-center dark:bg-black">
+      <Navigation />
+      <Upcoming />
+      <Coming />
+      <Popular />
+      <Top_rated />
+      <Footer />
     </div>
   );
 }

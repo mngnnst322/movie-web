@@ -49,7 +49,7 @@ export default function Navigation() {
   return (
     <header className="py-[11.5px] w-full">
       <div className="container">
-        <div className="flex justify-around items-center">
+        <div className="flex justify-between items-center">
           <Link
             href={"/"}
             className=" flex text-indigo-700 text-1xl gap-2 items-center"
@@ -76,14 +76,7 @@ export default function Navigation() {
             <Genres />
             <div className="relative w-144.25">
               <div className="flex gap-4">
-                <div
-                  className="
-  w-78 flex h-12 items-center gap-2 px-2 rounded-md
-  border-2 border-gray-300
-  dark:border-gray-700
-  bg-white dark:bg-gray-900
-"
-                >
+                <div className="w-78  flex h-12  items-center justify-start gap-2 border border-gray-300 rounded-md px-2 dark:border-gray-800">
                   {theme === "light" ? (
                     <Image
                       width={16}

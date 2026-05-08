@@ -54,14 +54,14 @@ export const Upcoming = () => {
     >
       <SwiperSlide>
         <div
-          className="w-360 h-150 bg-cover bg-center bg-zinc-800 transition-all relative duration-500 easa-in-out"
+          className="w-360 h-150 bg-cover bg-center flex justify-center items-center bg-zinc-800 transition-all relative duration-500 easa-in-out"
           style={{
             backgroundImage: currentMovie?.backdrop_path
               ? `url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`
               : "none",
           }}
         >
-          <div className="flex h-full text-white  items-center justify-between ">
+          <div className="flex h-full text-white  items-center justify-center ">
             <div className="flex items-center justify-center ">
               <button
                 onClick={prevSlide}
