@@ -47,7 +47,7 @@ export const Coming = () => {
         </Link>
       </div>
       <div className="w-fit ">
-        <div className="grid grid-cols-5 grid-rows-2 gap-6  place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8  place-items-center">
           {movies.slice(0, drama).map((movie) => (
             <Link href={`/movie/${movie?.id}`} key={movie.id}>
               <div key={movie.id}>

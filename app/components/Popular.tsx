@@ -21,7 +21,7 @@ export const Popular = () => {
 
   return (
     <div className="flex justify-center items-center flex-col gap-6 w-full">
-      <div className="flex justify-between">
+      <div className="flex justify-between  w-358 px-20">
         <p className="text-4xl text-black font-bold">Popular</p>
 
         <Link
@@ -33,7 +33,7 @@ export const Popular = () => {
           <img src="chevron-right (1).svg" alt="" className="w-4 h-4" />
         </Link>
       </div>
-      <div className="grid grid-cols-5 grid-rows-2 gap-4  place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8  place-items-center">
         {popular.slice(0, drama).map((movie) => (
           <Link href={`/movie/${movie?.id}`} key={movie.id}>
             <div key={movie.id}>

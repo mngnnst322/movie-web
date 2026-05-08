@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Genre } from "../types";
 import { tmdb } from "@/lib/tmdb";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export const Genres = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +26,23 @@ export const Genres = () => {
         }}
         className="w-24.25 h-12 px-4 py-2 border border-stone-200 shadow-3xl items-center flex justify-center rounded-lg gap-2 cursor-pointer hover:scale-105 transition-transform "
       >
-        <img className="w-3.5 h-3.5" src="/chevron-right (1).svg" alt="" />
+        {useTheme().theme === "light" ? (
+          <Image
+            width={16}
+            height={16}
+            className="w-4 h-4 justify-center items-center"
+            src="/chevron-right (1).svg"
+            alt=""
+          />
+        ) : (
+          <Image
+            width={16}
+            height={16}
+            className="w-4 h-4 justify-center items-center"
+            src="/darknext.svg"
+            alt=""
+          />
+        )}
         Genre
       </button>
       <div
