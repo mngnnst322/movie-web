@@ -76,7 +76,7 @@ export default function Search() {
   const pages = getPagination(page, maxPages);
 
   return (
-    <div>
+    <div className="dark:bg-black dark:text-white">
       <div className="container ">
         <Navigation />
         <div className="flex-start text-black text-4xl">Search Filter</div>
@@ -130,7 +130,7 @@ export default function Search() {
                         src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                       />
 
-                      <div className="bg-stone-200 w-full  rounded-b-md h-25">
+                      <div className="bg-stone-200 w-full dark:bg-zinc-800 rounded-b-md h-25">
                         {" "}
                         <div
                           className="flex justify-start items-center pt-2.5  pl-2.5

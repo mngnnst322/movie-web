@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { MovieSummary } from "../types";
 import axios from "axios";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const API_KEY = "826f50ac875ac781d67fa627ccd5498a";
 
@@ -40,10 +41,10 @@ export const Coming = () => {
         <Link
           href={"/upcoming"}
           onClick={() => setDrama((prev) => prev + 10)}
-          className=" flex justify-end text-1xl gap-1.5 cursor-pointer hover:opacity-60"
+          className=" flex items-center justify-end text-1xl gap-1.5 cursor-pointer hover:opacity-60"
         >
           See more
-          <img src="chevron-right (1).svg" alt="" className="w-4 h-4" />
+          <ChevronRight className="w-4 h-4 " />
         </Link>
       </div>
       <div className="w-fit ">
@@ -60,7 +61,7 @@ export const Coming = () => {
                     src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                   />
 
-                  <div className="bg-stone-200 w-full  rounded-b-md h-25">
+                  <div className="bg-stone-200 w-full  rounded-b-md h-25 dark:bg-zinc-800">
                     {" "}
                     <div
                       className="flex justify-start items-center pt-2.5  pl-2.5

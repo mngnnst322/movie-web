@@ -56,7 +56,7 @@ export default function Upcoming() {
   const pages = getPagination(page, maxPages);
 
   return (
-    <div>
+    <div className="dark:bg-black dark:text-white">
       {" "}
       <Navigation />
       <div className="flex flex-col w-screen justify-center items-center gap-20   ">

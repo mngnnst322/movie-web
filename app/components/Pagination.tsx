@@ -53,7 +53,7 @@ export const Pagination = () => {
       <button
         disabled={page === 1}
         onClick={() => setPage((p) => p - 1)}
-        className="flex justify-center items-center text-sm  bg-stone-300 p-2 rounded-2xl cursor-pointer hover:scale-105 transition-transform disabled:opacity-40 dark:bg-gray-700"
+        className="flex justify-center items-center text-sm  dark:bg-stone-300 p-2 rounded-2xl cursor-pointer hover:scale-105 transition-transform disabled:opacity-40"
       >
         ← Previous
       </button>

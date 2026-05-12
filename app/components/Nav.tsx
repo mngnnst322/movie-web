@@ -50,7 +50,7 @@ export default function Navigation() {
   return (
     <header className="py-[11.5px] w-full justify-center items-center">
       <div className="container">
-        <div className="flex w-screen justify-around items-center">
+        <div className="flex md:w-125 lg:w-225 xl:w-screen justify-around items-center">
           <Link
             href={"/"}
             className=" flex text-indigo-700 text-1xl gap-2 items-center"
@@ -77,7 +77,7 @@ export default function Navigation() {
             <Genres />
             <div className="relative w-144.25">
               <div className="flex gap-4">
-                <div className="w-78  flex h-12  items-center justify-start gap-2 border border-gray-300 rounded-md px-2 dark:border-gray-800">
+                <div className="w-78  flex h-12  items-center justify-start gap-2 border border-gray-300 rounded-md px-2 dark:border-white ">
                   <SearchIcon size={16} />
 
                   <input
@@ -91,7 +91,7 @@ export default function Navigation() {
                   />
                 </div>
                 {(results.length > 0 || loading) && (
-                  <button className="absolute top-8 bg-white mt-2 w-78 shadow-lg rounded-lg max-h-60 overflow-y-auto z-20 dark:bg-gray-800 ">
+                  <button className="absolute top-8 bg-white mt-2 w-78 shadow-lg rounded-lg max-h-120 overflow-y-auto z-20 dark:bg-grey-800 dark:text-white ">
                     {loading && (
                       <p className="p-3 text-gray-500">Searching...</p>
                     )}

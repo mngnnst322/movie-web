@@ -6,6 +6,7 @@ import Image from "next/image";
 import { MovieSummary } from "../types";
 import axios from "axios";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const API_KEY = "826f50ac875ac781d67fa627ccd5498a";
 
@@ -35,7 +36,7 @@ export const Top_rated = () => {
           className="flex justify-center items-center text-1xl gap-1.5 cursor-pointer hover:opacity-60"
         >
           See more
-          <img src="chevron-right (1).svg" alt="" className="w-4 h-4" />
+          <ChevronRight className="w-4 h-4 " />
         </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8  place-items-center ">
@@ -49,7 +50,7 @@ export const Top_rated = () => {
               src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             />
 
-            <div className="bg-stone-200 w-full  rounded-b-md h-25">
+            <div className="bg-stone-200 w-full  rounded-b-md h-25 dark:bg-zinc-800">
               {" "}
               <div
                 className="flex justify-start items-center pt-2.5  pl-2.5
@@ -66,7 +67,7 @@ export const Top_rated = () => {
                   {" "}
                   {movie.vote_average.toFixed(1)}{" "}
                 </p>
-                <p className="text-[#71717A] text-[16px]">/10</p>
+                <p className="text-foreground text-[16px]">/10</p>
               </div>
               <div className="  pl-2.5 "> {movie.title}</div>
             </div>
