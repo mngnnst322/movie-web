@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
- 
+
 export const Footer = () => {
   return (
     <div className="bg-indigo-700 flex w-full h-70">
@@ -85,5 +85,3 @@ export const Footer = () => {
     </div>
   );
 };
- 
- 

@@ -78,24 +78,7 @@ export default function Navigation() {
             <div className="relative w-144.25">
               <div className="flex gap-4">
                 <div className="w-78  flex h-12  items-center justify-start gap-2 border border-gray-300 rounded-md px-2 dark:border-gray-800">
-                  {/* {theme === "light" ? (
-                    <Image
-                      width={16}
-                      height={16}
-                      className="w-4 h-4 justify-center items-center"
-                      src="/navisearch.svg"
-                      alt=""
-                    />
-                  ) : (
-                    <Image
-                      width={16}
-                      height={16}
-                      className="w-4 h-4 justify-center items-center"
-                      src="/searchdrak.svg"
-                      alt=""
-                    />
-                  )} */}
-                  <SearchIcon size={16}/>
+                  <SearchIcon size={16} />
 
                   <input
                     className="outline-none"
@@ -144,46 +127,6 @@ export default function Navigation() {
                     ))}
                   </button>
                 )}
-              </div>
-
-              <div
-                data-shown={isVisible}
-                className="absolute duration-300 p-5 bg-white border border-[#E4E4E7] rounded-lg mt-1 data-[shown=true]:visible data-[shown=true]:opacity-100 invisible opacity-0"
-              >
-                <div className="mt-1 font-semibold text-2xl text-[#09090B]">
-                  Genres
-                </div>
-                <div className="text-[#09090B]">
-                  See lists of movies by genre
-                </div>
-                <hr className="border border-[#E4E4E7] my-4" />
-
-                <div className="flex flex-wrap gap-4 max-w-135">
-                  {genres.map((genre) => (
-                    <button
-                      onClick={() => {
-                        setTheme(theme === "light" ? "dark" : "light");
-                      }}
-                      key={genre.id}
-                      className="border cursor-pointer hover:opacity-80 duration-300 text-xs font-semibold py-0.5 pl-2.5 pr-1 border-[#E4E4E7] rounded-full flex items-center gap-2"
-                    >
-                      {genre.name}
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <path
-                          d="M6 12L10 8L6 4"
-                          stroke="#09090B"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

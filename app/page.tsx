@@ -9,7 +9,7 @@ import { Top_rated } from "./components/Top_rated";
 
 export default function Home() {
   return (
-    <div className="w-screen space-y-20 items-center justify-center dark:bg-black">
+    <div className="w-screen space-y-20 items-center justify-center dark:bg-black dark:text-white">
       <Navigation />
       <Upcoming />
       <Coming />
