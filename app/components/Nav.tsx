@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Genres } from "./Genre";
 import axios from "axios";
 import { useTheme } from "next-themes";
+import { SearchIcon } from "lucide-react";
 
 export default function Navigation() {
   const [results, setResults] = useState<MovieSummary[]>([]);
@@ -18,7 +19,7 @@ export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const { theme, setTheme } = useTheme();
   const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
-  const { dark } = useTheme();
+  // const { dark } = useTheme();
 
   useEffect(() => {
     tmdb.get("/genre/movie/list").then((res) => {
@@ -77,7 +78,7 @@ export default function Navigation() {
             <div className="relative w-144.25">
               <div className="flex gap-4">
                 <div className="w-78  flex h-12  items-center justify-start gap-2 border border-gray-300 rounded-md px-2 dark:border-gray-800">
-                  {theme === "light" ? (
+                  {/* {theme === "light" ? (
                     <Image
                       width={16}
                       height={16}
@@ -93,7 +94,8 @@ export default function Navigation() {
                       src="/searchdrak.svg"
                       alt=""
                     />
-                  )}
+                  )} */}
+                  <SearchIcon size={16}/>
 
                   <input
                     className="outline-none"

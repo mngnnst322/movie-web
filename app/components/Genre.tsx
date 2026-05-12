@@ -6,6 +6,9 @@ import { Genre } from "../types";
 import { tmdb } from "@/lib/tmdb";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { ChevronRight } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Button } from "@base-ui/react";
 
 export const Genres = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,33 +27,18 @@ export const Genres = () => {
         onClick={() => {
           setIsVisible(!isVisible);
         }}
-        className="w-24.25 h-12 px-4 py-2 border border-stone-200 shadow-3xl items-center flex justify-center rounded-lg gap-2 cursor-pointer hover:scale-105 transition-transform "
+        className="w-26 h-12 px-4 py-2 border border-stone-200 shadow-3xl items-center flex justify-center rounded-lg gap-2 cursor-pointer hover:scale-105 transition-transform "
       >
-        {useTheme().theme === "light" ? (
-          <Image
-            width={16}
-            height={16}
-            className="w-4 h-4 justify-center items-center"
-            src="/chevron-right (1).svg"
-            alt=""
-          />
-        ) : (
-          <Image
-            width={16}
-            height={16}
-            className="w-4 h-4 justify-center items-center"
-            src="/darknext.svg"
-            alt=""
-          />
-        )}
+        <ChevronRight className="w-full h-full"/> 
+
         Genre
       </button>
       <div
         data-shown={isVisible}
-        className={`absolute z-10 duration-300  p-5 bg-white border border-[#E4E4E7] rounded-lg mt-1 data-[shown=true]:visible data-[shown=true]:opacity-100 invisible opacity-0    `}
+        className={`absolute z-10 duration-300  p-5 bg-white dark:bg-black  border border-[#E4E4E7] rounded-lg mt-1  data-[shown=true]:opacity-100  opacity-0    `}
       >
-        <div className="mt-1 font-semibold text-2xl ">Genres</div>
-        <div>See lists of movies by genre</div>
+        <div className="mt-1 font-semibold text-2xl text-black">Genres</div>
+        <div className="text-black-700">See lists of movies by genre</div>
         <hr className="border border-[#E4E4E7] my-4 dark:dark:border-gray-700" />
         <div className="flex flex-wrap gap-4 max-w-135">
           {genres.map((genre, i) => (
@@ -67,6 +55,7 @@ export const Genres = () => {
           ))}
         </div>
       </div>
+
     </div>
   );
 };

@@ -1,7 +1,10 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 
 import { ThemeProvider } from "next-themes";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -13,7 +16,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} bg-white`}
+      className={cn("bg-white", inter.variable, "font-sans", geist.variable)}
       suppressHydrationWarning
     >
       <body>
