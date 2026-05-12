@@ -56,14 +56,14 @@ export default function Popular() {
   const pages = getPagination(page, maxPages);
 
   return (
-    <div>
+    <div className="dark:text-white">
       {" "}
       <Navigation />
       <div className="flex flex-col w-screen justify-center items-center gap-20   ">
         <div className="flex justify-start w-full pl-5 pt-5 mb-8">
           <p className="text-4xl text-black font-bold">Popular</p>
         </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8  place-items-center">
           {movies.slice(0, 10).map((movie) => (
             <Link
               key={movie.id}
@@ -78,7 +78,7 @@ export default function Popular() {
                 />
               )}
 
-              <div className=" text-1xl font-normal pl-1.5 p-2 bg-stone-100 w-full h-fit rounded-b-lg ">
+              <div className=" text-1xl font-normal pl-1.5 p-2 bg-stone-100 w-full h-fit rounded-b-lg dark:bg-zinc-800 ">
                 <div className="flex items-center gap-1">
                   <img src={"star.svg"} alt="" className="h-4 w-4" />
                   <p className="text-yellow-500 font-semibold">

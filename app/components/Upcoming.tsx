@@ -6,7 +6,7 @@ import Image from "next/image";
 import { MovieSummary } from "../types";
 import axios from "axios";
 import Link from "next/link";
-import "swiper/css";
+// import "swiper/css";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 
 const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
