@@ -4,8 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Genre } from "../types";
 import { tmdb } from "@/lib/tmdb";
-
-import { useTheme } from "next-themes";
 import { ChevronRight } from "lucide-react";
 
 export const Genres = () => {
@@ -20,7 +18,7 @@ export const Genres = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex ">
       <button
         onClick={() => {
           setIsVisible(!isVisible);

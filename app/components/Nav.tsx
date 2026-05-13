@@ -48,7 +48,7 @@ export default function Navigation() {
   }, [query]);
 
   return (
-    <header className="py-[11.5px] w-full justify-center items-center">
+    <header className="py-[11.5px] w-full md:w-100 lg:w-225 xl-w[400] justify-center items-center">
       <div className="container">
         <div className="flex md:w-125 lg:w-225 xl:w-screen justify-around items-center">
           <Link

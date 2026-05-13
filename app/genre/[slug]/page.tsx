@@ -80,7 +80,7 @@ export default function Search() {
       <div className="container ">
         <Navigation />
         <div className="flex-start text-black text-4xl">Search Filter</div>
-        <div className="flex ">
+        <div className="flex justify-center ">
           <div className="flex w-[20%]  flex-wrap gap-2 justify-start h-60">
             <div className="text-3xl">
               Genres
@@ -116,8 +116,8 @@ export default function Search() {
               </button>
             ))}
           </div>
-          <div className="flex w-[80%] p-6  gap-6 text-gray-500 border-l-2 h-full  flex-col ">
-            <div className="grid grid-cols-4 grid-rows-2 gap-4">
+          <div className="flex justify-center items-centerw-[80%] p-6  gap-6 text-gray-500 border-l-2 h-full  flex-col ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8  place-items-center">
               {popular.slice(0, 12).map((movie) => (
                 <Link href={`/movie/${movie?.id}`} key={movie.id}>
                   <div key={movie.id}>
