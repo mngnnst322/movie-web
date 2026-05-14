@@ -30,7 +30,7 @@ export const Genres = () => {
       </button>
       <div
         data-shown={isVisible}
-        className={`absolute z-10 duration-300  p-5 bg-background  border border-[#E4E4E7] rounded-lg mt-1  data-[shown=true]:opacity-100  opacity-0  dark:bg-black   `}
+        className={`absolute z-10 duration-300  p-5 bg-background  border border-[#E4E4E7] rounded-lg mt-1  data-[shown=true]:opacity-100  opacity-0  dark:bg-black   top-14`}
       >
         <div className="mt-1 font-semibold text-2xl text-black dark:text-white">
           Genres

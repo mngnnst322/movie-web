@@ -91,7 +91,7 @@ export default function Navigation() {
                   />
                 </div>
                 {(results.length > 0 || loading) && (
-                  <button className="absolute top-8 bg-white mt-2 w-78 shadow-lg rounded-lg max-h-120 overflow-y-auto z-20 dark:bg-grey-800 dark:text-white ">
+                  <button className="absolute top-8 bg-white mt-2 w-78 shadow-lg rounded-lg max-h-120 overflow-y-auto z-20 dark:bg-black dark:text-white ">
                     {loading && (
                       <p className="p-3 text-gray-500">Searching...</p>
                     )}
