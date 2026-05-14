@@ -10,6 +10,7 @@ import { Footer } from "@/app/components/Footer";
 import Link from "next/link";
 import Navigation from "@/app/components/Nav";
 import { MovieSummary } from "@/app/types";
+import { MovieCardSkeleton2 } from "../../components/skeleton2";
 
 const API_KEY = "d67d8bebd0f4ff345f6505c99e9d0289";
 
@@ -19,6 +20,8 @@ export default function MovieDetails() {
   const [loading, setLoading] = useState(false);
   const [credits, setCredits] = useState<any>(null);
   const [recommendations, setRecommendations] = useState<MovieSummary[]>([]);
+  const [posterLoaded, setPosterLoaded] = useState(false);
+  const [backdropLoaded, setBackdropLoaded] = useState(false);
 
   const director = credits?.crew?.find((p: any) => p.job === "Director");
   const writers = credits?.crew?.filter(
@@ -106,24 +109,38 @@ export default function MovieDetails() {
         </div>
 
         {/* Media Section */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8 aspect-video md:aspect-auto md:h-[450px]">
-          <div className="w-full md:w-1/3 h-full">
+        <div className="flex flex-col md:flex-row gap-4 mb-8 aspect-video md:aspect-auto md:h-112.5">
+          {/* Poster */}
+          <div className="w-full md:w-1/3 h-full relative">
+            {!posterLoaded && <MovieCardSkeleton2 />}
+
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              className="w-full h-full object-cover rounded shadow-2xl"
+              className={`w-full h-full object-cover rounded shadow-2xl transition-opacity duration-500 ${
+                posterLoaded ? "opacity-100" : "opacity-0"
+              }`}
               alt=""
+              onLoad={() => setPosterLoaded(true)}
             />
           </div>
+
+          {/* Backdrop */}
           <div className="w-full md:w-2/3 h-full relative">
+            {!backdropLoaded && <MovieCardSkeleton2 />}
+
             <img
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-              className="w-full h-full object-cover rounded"
+              className={`w-full h-full object-cover rounded transition-opacity duration-500 ${
+                backdropLoaded ? "opacity-100" : "opacity-0"
+              }`}
               alt=""
+              onLoad={() => setBackdropLoaded(true)}
             />
-            {/* Play Icon Placeholder */}
+
+            {/* Play icon */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-black/30 backdrop-blur-sm p-4 rounded-full border border-white/20 hover:scale-110 transition cursor-pointer">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1"></div>
+                <div className="w-0 h-0 border-t-12 border-t-transparent border-l-20 border-l-white border-b-[12px] border-b-transparent ml-1"></div>
               </div>
             </div>
           </div>

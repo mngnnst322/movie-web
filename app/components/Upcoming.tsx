@@ -111,7 +111,7 @@ export const Upcoming = () => {
               <button
                 onClick={nextSlide}
                 disabled={isNextdisabled}
-                className="flex fixed right-10 items-center justify-center mr-2.5 bg-white w-7 h-7 rounded-full "
+                className="flex absolute right-10 items-center justify-center mr-2.5 bg-white w-7 h-7 rounded-full "
               >
                 <Image width={20} height={20} src="/right.svg" alt="" />
               </button>
