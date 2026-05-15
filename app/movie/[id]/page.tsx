@@ -193,7 +193,12 @@ export default function MovieDetails() {
           </div>
         </div>
 
-        {/* Recommendations Grid */}
+        <iframe
+          src={"https://www.vidking.net/embed/movie/" + id}
+          width="100%"
+          height="600"
+          allowFullScreen
+        ></iframe>
         <div className="mt-16">
           <div className="flex items-center gap-3 mb-8">
             <h2 className="text-2xl font-bold">More like this</h2>
